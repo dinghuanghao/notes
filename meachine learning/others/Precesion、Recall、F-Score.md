@@ -1,4 +1,4 @@
-# Precesion、Recall、F-Score
+# Precesion、Recall、F-Score、ROC、AUC ROC
 
 ## 公式及定义
 
@@ -73,3 +73,21 @@ $F-Score = \cfrac{(1 + \beta^n)Precesion\cdot Recall}{\beta^n Precesion + Recall
 + F0.5-Score：n = 0.5，Precesion 比 Recall更重要
 + F1-Score：n=1，Precesion 和 Recall重要性相同
 + F2-Score：n=2，Recall 被 Precesion更重要
+
+
+
+##ROC、AUC ROC
+
+TPR：在所有实际为阳性的样本中，被正确地判断为阳性之比率 
+
+$TPR = \cfrac{TP}{TP + FN}$
+
+FPR：在所有实际为阴性的样本中，被错误地判断为阳性之比率。  
+
+$FPR = \cfrac{FP}{FP + TN}$
+
+ROC：以伪阴性率（FPR）为X轴，以真阳性率（TPR）为Y轴绘制的曲线。左上角是最佳情况，右下角是最差情况，对角线是为随机预测曲线（对错各一半）。对角线以上的点代表好的分类结果，以下代表差的分类结果。
+
+AUC：曲线下面积（Area under the Curve）
+
+AUC ROC：ROC曲线下面积，越大表示模型越好，$AUC \in (0, 1)$

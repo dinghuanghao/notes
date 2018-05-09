@@ -146,3 +146,22 @@ $f(x, y^{'}) > f(x, y^{''})$
   + $Precision[i] = max(Precision[Recall \ge i])$
 
   不过此处的AP和VOC的AP不同，VOC是同时输出多个类，每个类有多个标签。VOC的AP是只单个类别，MAP神指所有类别的均值。而此处仅仅是输出多个标签（相当于一个类，多标签）。
+
+### Label based metrics
+
+#### Classification metrics
+
++ $B_{macro}\ B_{micro} B\in \{Accuracy, Precision, Recall, F^\beta \}$
+
+  $B_{macro}(h) = \cfrac{1}{q}\sum^q_{j = 1} B(TP_j, FP_j, TN_j, FN_j)$ 
+
+  $B_{micro}(h) = \cfrac{1}{q}B(\sum^q_{j=1}TP_j, \sum^q_{j=1}FP_j, \sum^q_{j=1}TN_j, \sum^q_{j=1}FN_j)$ 
+
+  macro averaging：对每个类别求对应的指标，然后平均。
+
+  micro averaging：将所有的样本加起来，再求指标。 
+
+   $Accuracy_{micro}(h) + hloss(h) = 1$ 
+
+#### Ranking metrics
+

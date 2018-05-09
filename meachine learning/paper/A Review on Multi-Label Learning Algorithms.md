@@ -12,6 +12,8 @@
 
 **$|\cdot|$** : 求集合的cardinality
 
+$[[ \cdot ]]$ ：成立返回1， 不成立返回0
+
 
 
 
@@ -77,7 +79,9 @@ $f(x, y^{'}) > f(x, y^{''})$
 
 ### Example based metrics
 
-+ Subset Accuracy
+#### Classification metircs
+
++ $Subset Accuracy$
 
   $subsetacc(h) = \cfrac{1}{p}\sum^p_{i = 1}[[h(x_i) = Y_i]]$
 
@@ -85,7 +89,7 @@ $f(x, y^{'}) > f(x, y^{''})$
 
   
 
-+  Hamming loss
++ $Hamming loss$
 
   $hloss(h) = \cfrac{1}{p}\sum^p_{i=1}|h(x_i)\Delta Y_i|$
 
@@ -106,3 +110,58 @@ $f(x, y^{'}) > f(x, y^{''})$
   $F^{\beta}_{exam} = \cfrac{(1 + \beta^2) \cdot Precision_{exam} \cdot Recall_{exam}}{\beta^2\cdot Precision_{exam} + Recall_{exam}}$
 
   
+
+#### Ranking metrics
+
+需要注意的是，Classification metrics是针对$h(x)$ ， 而Ranking metric是针对 $f(x, y)$ 
+
++ $One\ error$
+
+  $one\ error(f) = \cfrac{1}{p}\sum^p_{i=1} [[ [arg max_{\mathcal{y} \in \mathcal{Y}}f(x_i, y)] \notin Y_i ]]$
+
+  隶属度最高的一个标签，分类错误的概率。在单标签分类中，就等于传统的分类错误率。
+
++ $Coverage$
+
+  $coverage(f) = \cfrac{1}{p}\sum^p_{i=1}max_{y \in Y_i} rank_f(x_i, y) - 1$
+
+  将结果排序，从隶属度最高的开始，要跨过多长的区间，才能覆盖所有的相关样本。
+
+  输出[0.8  0.7  0.6  0.5  0.4]，真实[1 0 1 1 0]，则coverage为 ((0.8 - 0.5) - 1)
+
++ $Ranking\ Loss$
+
+  $rloss(f) =  \cfrac{1}{p}\sum^p_{i=1}\cfrac{1}{|Y_i||Y_i^{\prime\prime}|}|{\left(y^\prime, y^{\prime\prime}|f\left(x_i, y^\prime\right)<f(x_i, y^{\prime\prime}), (y^\prime, y^{\prime\prime})\in Y_i \times Y_i^{\prime\prime}\right)}|$
+
+  样本所属标签的隶属度低于非样本所书标签隶属度的平均比例。
+
+  如[0.8  0.7  0.6  0.5  0.4]，真实标签[ 1 1 0 1 1]，那么就是 2/5（0.5 0.4小于了0.6）
+
++ $Average \ Precision$ 
+
+  rank之后，以个数为阈值，从1取到K(K为最大标签数量)。并分别计算每一个阈值对应的Precision，Recall。绘制出PR曲线（Recall为横坐标，Precision为纵坐标），这条曲线总体是下降的，因为阈值为K时，所有标签都预测为相关标签，Recall为1，Precision较低。而Average Precision则是，PR曲线的线下面积。
+
+  在PASCAL VOC比赛2010年以后，会对PR曲线进行调整，将Precision处理为单调曲线
+
+  + $Precision[i] = max(Precision[Recall \ge i])$
+
+  不过此处的AP和VOC的AP不同，VOC是同时输出多个类，每个类有多个标签。VOC的AP是只单个类别，MAP神指所有类别的均值。而此处仅仅是输出多个标签（相当于一个类，多标签）。
+
+### Label based metrics
+
+#### Classification metrics
+
++ $B_{macro}\ B_{micro} B\in \{Accuracy, Precision, Recall, F^\beta \}$
+
+  $B_{macro}(h) = \cfrac{1}{q}\sum^q_{j = 1} B(TP_j, FP_j, TN_j, FN_j)$ 
+
+  $B_{micro}(h) = \cfrac{1}{q}B(\sum^q_{j=1}TP_j, \sum^q_{j=1}FP_j, \sum^q_{j=1}TN_j, \sum^q_{j=1}FN_j)$ 
+
+  macro averaging：对每个类别求对应的指标，然后平均。
+
+  micro averaging：将所有的样本加起来，再求指标。 
+
+   $Accuracy_{micro}(h) + hloss(h) = 1$ 
+
+#### Ranking metrics
+

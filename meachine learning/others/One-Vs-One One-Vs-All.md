@@ -4,7 +4,7 @@
 
 ##One-Vs-All
 
-为每一种输出类别，训练一个分类器。![One-Vs-All](E:\github\notes\meachine learning\pictures\One-Vs-All.PNG)
+为每一种输出类别，训练一个分类器。![One-Vs-All](E:\github\notes\meachine learning\others\pictures\One-Vs-All.PNG)
 
 优点：
 
@@ -13,7 +13,7 @@
 
 缺点：在训练样本不均衡的情况下，会偏向于样本量较大的一方
 
-![One-Vs-All样本不均匀](E:\github\notes\meachine learning\pictures\One-Vs-All样本不均匀.PNG)
+![One-Vs-All样本不均匀](E:\github\notes\meachine learning\others\pictures\One-Vs-All样本不均匀.PNG)
 
 如上图，黑色是训练样本，这个时候由于三角形较少，因此分类结果为“红色实线”。而绿色是测试集中的数据，可见，如果把测试集也考虑进来，分类结果应该是“红色虚线”。这就是对大量样本的偏向性。
 

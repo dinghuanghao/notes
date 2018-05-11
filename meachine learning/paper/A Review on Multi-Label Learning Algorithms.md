@@ -165,3 +165,54 @@ $f(x, y^{'}) > f(x, y^{''})$
 
 #### Ranking metrics
 
+
+
+## Learning Algorithms
+
+### Problem Transformation Methods
+
+#### Binary Relevance
+
+将K标签分类转换为K个二元分类，针对每一个类别训练一个二元分类器，在预测的时候预测K次。
+
+如果输出均小于阈值，那么会没有任何相关标签，这时候可使用T-Criterion 
+
+$T-Criterion $ ：将输出最大的一个标签作为相关标签。
+
+Remarks：
+
++ Binary Relevance是一种一阶的算法，分离处理每一类标签
+
++ 优点：
+
+  + 算法直接，简单
+  + 可用进行并行化计算（标签独立）
+
++ 缺点：
+
+  + 忽略了标签潜在的关联性
+
+  + 本质上是一种One-Vs-All学习，容易收到 Class-imbalance影响（标签类别多，但是标签密度小）
+
+    
+
+#### Classifier Chain
+
+可用认为是Binary Relevance算法的一个变种，将K个二元分类器串联起来，将输入与本分类器的输出拼接起来，作为下一个分类器的输出。![Classifier Chain](.\pictures\Classifier Chain.PNG)
+
+由于分类器的顺序会对算法效果有很大影响，一种改进方法是Ensemble of Classifier Chain，通过随机产生多个不同顺序的Chain，并且每次的输出都是多个Chain的综合（还有一些方法是，不改变特征空间，而是在最后的输出进行聚合），一定程度上缓解了Classifier Chain对分类器顺序的敏感性，但是没有从根本解决问题，且随着标签类别变多，计算量会大大增加。
+
+
+
+Remarks：
+
++ Classifier Chain是一种假定标签之间是随机相关性的高阶算法
++ 优点：
+  + 利用标签的潜在联系
++ 缺点：
+  + 无法并行化计算（标签预测串行化）
+
+
+
+#### Calibrated Lable Ranking
+

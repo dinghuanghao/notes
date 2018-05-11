@@ -216,3 +216,28 @@ Remarks：
 
 #### Calibrated Lable Ranking
 
+本质上来说是一种，One-Vs-One学习，将利用$C(k, 2)$ 个二元分类器来进行 K 类别标签分类。
+
++ 输入数据处理：![Calibrated Lable Ranking 输出数据处理](.\pictures\Calibrated Lable Ranking 输出数据处理.PNG)
+
+  每一个输入，参与 $Y \cdot Y^\prime$ 次训练（两个标签不同时，X才参与训练）
+
++ 对$C(k, 2)$ 个分类器的结果进行投票累加
+
+
+
+阈值计算：额外训练K个分类器（判断每一个类别是否是相关标签），处理后用作划分投票数的阈值。
+
+
+
+Remarks:
+
++ Calibrated Label Ranking是一种二阶算法
++ 优点：
+  + 作为一种One-Vs-One算法，可用减轻Class-Imbalance问题
+  + 学习标签对的相关性
++ 缺点：
+  + 分类器的数量为二次方级别($C(k, 2)$) 
++ 改进
+  + 剪枝：在测试阶段对分类器进行剪枝干
+

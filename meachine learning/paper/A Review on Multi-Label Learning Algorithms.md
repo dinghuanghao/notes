@@ -1,4 +1,4 @@
-# A Review on Multi-Label Learning Algorithms
+# gA Review on Multi-Label Learning Algorithms
 
 ## 数学术语
 
@@ -13,8 +13,6 @@
 **$|\cdot|$** : 求集合的cardinality
 
 $[[ \cdot ]]$ ：成立返回1， 不成立返回0
-
-
 
 
 
@@ -277,3 +275,34 @@ Remarks：
 
 ### Algorithm Adaptation Methods
 
+#### ML-kNN
+
+kNN：无训练阶段，在预测的时候，选择“最近”的K个样本进行类别计数，取最大值作为目标类别。
+
+ML-kNN：
+
++ 选出“最近”的K个样本
+
++ 统计$C_j$ ， 表示第$j$ 个标签在“邻近”样本中作为相关标签的次数
+
++ 定义 $H_j$ 表示$x$ 的第 $j$ 个标签是相关标签的概率，则有
+
+  $h(x)  = \{y_i| \mathbb{P}(H_j|C_j)/\mathbb{P}(\lnot H_j | C_j) >1, 1\le j \le q\}$
+
+  根据贝叶斯公式，上式可转化为：
+
+  $f(x, y_j) = \cfrac{\mathbb{P}(H_j) \cdot \mathbb{P}(C_j|H_j)}{\mathbb{P}(\lnot H_j) \cdot \mathbb{P}(C_j | \lnot H_j)}$
+
++ $\mathbb{P}(H_j), \mathbb{P}(\lnot H_j)$ 都是先验概率，可直接从训练样本中进行统计
+
++ $\mathbb{P}(C_j|H_j), \mathbb{P}(C_j | \lnot H_j)$ 则要先计算出$C_j$ ，然后再从训练样本中进行统计
+
+
+
+Remarks：
+
++ 是一种一阶算法
++ 优点：具有懒惰学习和贝叶斯学习二者的优点
+  + 决策边界根据邻居的属性自适应地变化，能很好的处理未见过的样本
+  + 由于是基于先验概率进行评估，因此可用很大程度上的减轻Class-Imbalance
++ 缺点：无法发现标签潜在的联系

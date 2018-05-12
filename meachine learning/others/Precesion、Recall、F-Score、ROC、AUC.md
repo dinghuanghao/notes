@@ -68,7 +68,7 @@ Accuracy=1%
 
 目的：兼顾 Recall 和 Precesion 的特性
 
-$F-Score = \cfrac{(1 + \beta^n)Precesion\cdot Recall}{\beta^n Precesion + Recall}$
+$F-Score = \cfrac{(1 + \beta^2)Precesion\cdot Recall}{\beta^2Precesion + Recall}$
 
 + F0.5-Score：n = 0.5，Precesion 比 Recall更重要
 + F1-Score：n=1，Precesion 和 Recall重要性相同

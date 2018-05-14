@@ -1,4 +1,4 @@
-# gA Review on Multi-Label Learning Algorithms
+# A Review on Multi-Label Learning Algorithms
 
 ## 数学术语
 
@@ -79,7 +79,7 @@ $f(x, y^{'}) > f(x, y^{''})$
 
 #### Classification metircs
 
-+ $Subset Accuracy$
++ $Subset\  Accuracy​$
 
   $subsetacc(h) = \cfrac{1}{p}\sum^p_{i = 1}[[h(x_i) = Y_i]]$
 
@@ -87,7 +87,7 @@ $f(x, y^{'}) > f(x, y^{''})$
 
   
 
-+ $Hamming loss$
++ $Hamming\  loss$
 
   $hloss(h) = \cfrac{1}{p}\sum^p_{i=1}|h(x_i)\Delta Y_i|$
 

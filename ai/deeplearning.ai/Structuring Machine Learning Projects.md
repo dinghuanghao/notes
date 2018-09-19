@@ -183,15 +183,13 @@ ML在这些方面超过了人类的可能原因：
 
 + 选一定量的错误用例，针对每种原因进行统计、分析，得出每种原因的 优化上限。
 
-  ​
-
-![1](.\pictures\1.PNG)
+  ![Structuring Machine Learning Projects Fig 1.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20Fig%201.PNG?raw=true) 
 
 ### Clean up Incorrectly labeled data
 
 DL algorithms are quite robust to random errors in the training set，but they are less robust to systematic errors。（对于少量随机误差，如label标注错误，DL算法有很强的适应性，但是对于系统性的误差，如白色的狗都标记为了猫，算法就会出现明显的错误）
 
-![捕获2](.\pictures\2.PNG)
+![Structuring Machine Learning Projects Fig 2.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20Fig%202.PNG?raw=true) 
 
 在error analysis的时候，新增一个Incorrectly labeled 列，用于分析，错误标注带来的影响。
 
@@ -290,7 +288,7 @@ Human-level error ( proxy for Bayes error)
 + 如果新的数据量少，那么只训练最后一两层
 + 如果新的数据量打，可以在原有基础上整网继续训练
 
-![transfer learning](.\pictures\transfer learning.PNG)
+![Structuring Machine Learning Projects Fig 3.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20Fig%203.PNG?raw=true) 
 
 对于在原有基础上继续训练：
 
@@ -299,7 +297,7 @@ Human-level error ( proxy for Bayes error)
 
 神经网络的不同层有不同的分工，例如一些低层，可能用于进行边缘提取，颜色分辨等，这些是可以复用的因此可以迁移。
 
-![when-transfer-learning-make-sense](.\pictures\\when-transfer-learning-make-sense.PNG)
+![Structuring Machine Learning Projects Fig 5.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20 Fig 5.PNG?raw=true) 
 
 ### Multi-task learning
 
@@ -311,7 +309,7 @@ Human-level error ( proxy for Bayes error)
 
 这有一个好处，如果某些值缺失，例如标注人员也不确定是否有一只猫，这个时候算法仍然可以计算（计算loss的时候，只计算有标签的项目）
 
-![when-multi-task-learning-makes-sense](.\pictures\\when-multi-task-learning-makes-sense.PNG)
+![Structuring Machine Learning Projects Fig 4.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20Fig%204.PNG?raw=true) 
 
 在小型的NN中，分离的task更好，在大型的NN中，multi-task更好。这个结论并非一定。可能是因为在multi-task中，有boost效果，数据量城倍增加，低层的共用网络得到充分的学习。
 

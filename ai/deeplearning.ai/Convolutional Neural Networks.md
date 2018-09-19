@@ -107,16 +107,16 @@ $a^{l + 2} = g(z^{l+2} + a^l)$
 
 ##1 x 1 convolutions
 
-![1x1convolutions.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1convolutions.PNG?raw=true) 
+![1x1Convolutions.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1Convolutions.PNG?raw=true) 
 
 单个1x1 convolution将输入 axbxc的输入变为，axbx1。
 
 + 网络的压缩。使用pooling可以对长宽进行压缩，而使用1x1 convolution可以对通道数量进行压缩。
 + 提升网络性能
 
-![1x1convolution_2.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1convolution_2.PNG?raw=true) 
+![1x1Convolution_2.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1Convolution_2.PNG?raw=true) 
 
-![1x1convolution_3.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1convolution_3.PNG?raw=true) 
+![1x1Convolution_3.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/1x1Convolution_3.PNG?raw=true) 
 
 直接卷积的乘法运算为120M次，而使用1x1 convolution后，乘法次数变为12.4M，变为了十分之一。
 
@@ -133,7 +133,7 @@ $a^{l + 2} = g(z^{l+2} + a^l)$
 
 这种堆叠会导致网络急剧加大，导致性能问题，因此引入了1x1convolution来进行性能的提升。
 
-![inception_2.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/inception_2.PNG?raw=true) 
+![Inception_2.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Inception_2.PNG?raw=true) 
 
 
 

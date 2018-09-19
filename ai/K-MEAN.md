@@ -25,5 +25,5 @@ $J(c^1, c2, ……, \mu^{k-1}, \mu^k) = \cfrac{1}{m} \sum^m_{i = 1} || x^i - \mu
 
 聚类数量K的选择：当K越大，K-Mean的全局最优会越小（局部最优不一定），**拐点** 附近是较好选择。
 
-![K-MEAN Elbow](.\pictures\K-MEAN Elbow.PNG)
+![K-MEAN Elbow.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/K-MEAN%20Elbow.PNG?raw=true) 
 

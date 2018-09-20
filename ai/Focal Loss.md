@@ -42,3 +42,11 @@ $\alpha_t = \begin{cases} 0.25, &if\ y\ is\ 1\\ 0.75, & otherwise \end{cases}$
 
 由此，可知。对于正样本而言，loss会衰减更多。搜索资料来看，应该是由于在作者的任务中，虽然正样本更少，但是经过Focal Loss修正后，正样本的作用反而有所逆转，因此使用权重项对其降低。该数值纯粹是工程数值，在不同的项目中可能不同，个人感觉没有足够的说服力。
 
+
+
+在JAFC比赛中，“北科801”队采用了如下的Loss，根据他们的说法，使用原始Focal Loss的时候，$(1 - p_t)^{\gamma}$ 下降太快，因此他们使用 $e^{(1 - p_t)} $ 来代替。并使用每个标签的正负样本数量来代替固定的 $\alpha$ 。
+
+$FL(p_t) = \sum_{i = 1}^{13} -\alpha^i_t e^{(1 - p^i_t)}log(p^i_t)$
+
+$\alpha^i_t = \begin{cases} Negative^i_{num}, &if\ y\ is\ 1\\ Positive^i_{num}, & otherwise \end{cases}$
+

@@ -1,4 +1,4 @@
-# 笔记《Linus Torvalds rules for using Git》
+# 《Linus Torvalds rules for using Git》
 
 长期使用git，但是都比较随意。最近阅读自己的项目时，发现整个history非常混乱，，使得我自己都无法很好的理解当时发生了什么。于是便阅读了Linus Torvalds关于git使用的一些建议。
 

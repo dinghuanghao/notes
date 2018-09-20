@@ -1,4 +1,4 @@
-# 飞思卡尔智能车总结
+# Freescale Smart Car Competition
 
 ## 成绩
 

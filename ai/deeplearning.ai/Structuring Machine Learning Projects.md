@@ -297,7 +297,7 @@ Human-level error ( proxy for Bayes error)
 
 神经网络的不同层有不同的分工，例如一些低层，可能用于进行边缘提取，颜色分辨等，这些是可以复用的因此可以迁移。
 
-![Structuring Machine Learning Projects Fig 5.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20 Fig 5.PNG?raw=true) 
+![Structuring Machine Learning Projects Fig 5.PNG](https://github.com/dinghuanghao/notes/blob/master/pictures/Structuring%20Machine%20Learning%20Projects%20Fig%205.PNG?raw=true) 
 
 ### Multi-task learning
 
